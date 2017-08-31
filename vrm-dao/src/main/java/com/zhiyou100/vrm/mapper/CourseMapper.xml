@@ -237,4 +237,38 @@
  </delete>  
  
  
+  <resultMap id="CourseNameMap" type="com.zhiyou100.vrm.pojo.Course" >
+  
+  
+    
+     <id column="cid" property="id" jdbcType="INTEGER" />
+    <result column="course_name" property="courseName" jdbcType="VARCHAR" />
+    <result column="course_descr" property="courseDescr" jdbcType="VARCHAR" />
+    <result column="insert_time" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    
+    
+    <collection property="videoList" ofType = "com.zhiyou100.vrm.pojo.Video">
+       <id column="vid" property="id" jdbcType="INTEGER" />
+    <result column="video_title" property="videoTitle" jdbcType="VARCHAR" />
+    <result column="speaker_id" property="speakerId" jdbcType="INTEGER" />
+    <result column="course_id" property="courseId" jdbcType="INTEGER" />
+    <result column="video_length" property="videoLength" jdbcType="INTEGER" />
+    <result column="video_image_url" property="videoImageUrl" jdbcType="VARCHAR" />
+    <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
+    <result column="video_descr" property="videoDescr" jdbcType="VARCHAR" />
+    <result column="insert_time" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="video_play_times" property="videoPlayTimes" jdbcType="INTEGER" />
+    </collection>
+    
+    
+  </resultMap>
+  
+ <select id="findVideoAndCourseBySubId" parameterType="Integer" resultMap="CourseNameMap">
+   SELECT v.*,c.*,v.id vid,c.id cid FROM video v LEFT JOIN course c ON c.id =v.course_id 
+    WHERE c.id IN (SELECT c.id FROM course WHERE  c.subject_id = #{0});
+ </select>
+ 
 </mapper>

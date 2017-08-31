@@ -369,4 +369,8 @@
        FROM video v RIGHT JOIN course c ON c.id = v.course_id GROUP BY c.course_name;
       
       </select>
+      
+      <select id="findSpeakerNameByVid" parameterType="Integer" resultType="com.zhiyou100.vrm.pojo.Video">
+          SELECT v.* FROM video v WHERE v.speaker_id = #{0};
+      </select>
 </mapper>

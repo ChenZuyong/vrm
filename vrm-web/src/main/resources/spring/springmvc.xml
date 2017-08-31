@@ -27,4 +27,15 @@
 	<property name="maxUploadSize" value="6291456"></property>
 </bean>
 
+ <!--配置拦截器  -->
+	<mvc:interceptors>
+	   <mvc:interceptor>
+	        <mvc:mapping path="/front/user/indivadualindex.action"/>
+	        <mvc:mapping path="/front/user/password.action"/>
+	        <mvc:mapping path="/front/user/avatar.action"/>
+	        <mvc:mapping path="/front/user/index.action"/>
+	        <mvc:exclude-mapping path="/front"/>
+	        <bean class = "com.zhiyou100.vrm.util.UserInterceptor"/>
+	   </mvc:interceptor>
+	</mvc:interceptors>
 </beans>

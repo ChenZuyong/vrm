@@ -13,7 +13,7 @@
 	content="Web前端视频教程,大数据视频教程,HTML5视频教程,UI视频教程,PHP视频教程,java视频教程,python基础教程">
 <meta name="description"
 	content="智游教育在线课程视频,为您提供java,python,HTML5,UI,PHP,大数据等学科经典视频教程在线浏览学习,精细化知识点解析,深入浅出,想学不会都难,智游教育,学习成就梦想！">
-<%@include file="../include/style.html"%>
+<%@include file="../include/style.jsp"%>
 <title>在线公开课-智游教育|java|大数据|HTML5|python|UI|PHP视频教程</title>
 </head>
 
@@ -23,7 +23,7 @@
 	<div id="app">
 		<!--banner图-->
 		<div class="banner"
-			style="background-image: url('static/img/banner-${subjectId}.jpg')"></div>
+			style="background-image: url('${pageContext.request.contextPath}/static/img/banner-${subjectId}.jpg')"></div>
 
 		<!--面包屑导航-->
 		<div class="container mian-nav" id="navDiv">公开课 /${subject.subjectName }</div>
@@ -48,9 +48,9 @@
 								<p>${video.videoTitle }</p>
 								<div class="classify-v-info">
 									<span class="count" title="观看次数">
-									<img src="static/img/count.png" alt="">${video.videoPlayTimes }</span>
+									<img src="${pageContext.request.contextPath}/static/img/count.png" alt="">${video.videoPlayTimes }</span>
 									<span class="duration" title="视频时长">
-										<img src="static/img/player.png" alt="">${video.videoLengthStr }</span>
+										<img src="${pageContext.request.contextPath}/static/img/player.png" alt="">${video.videoLength }</span>
 								</div>
 							</li>
 						</c:forEach>
@@ -66,11 +66,11 @@
 
 	<%@include file="../include/footer.jsp"%>
 
-	<%@include file="../include/script.html"%>
+	<%@include file="../include/script.jsp"%>
 	<script type="text/javascript">
 		function getVideo(id){
 			var subjectId=$('#subjectId').val();
-			location.href='front/video/index.do?videoId='+id+'&subjectId='+subjectId;
+			location.href='${pageContext.request.contextPath}/front/video/index.action?videoId='+id+'&subjectId='+subjectId;
 		}
 	</script>
 

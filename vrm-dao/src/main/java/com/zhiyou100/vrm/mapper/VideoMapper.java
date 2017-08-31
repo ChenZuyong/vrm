@@ -43,4 +43,5 @@ public interface VideoMapper {
     int selectByKeyCount(KeyVO keyvo);
     List<Video> selectByKeyUser(KeyVO keyvo);
     List<Video> showDatas();
+    List<Video> findVideosBySpeakerId(Integer id);
 }

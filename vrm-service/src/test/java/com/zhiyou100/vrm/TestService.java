@@ -1,6 +1,7 @@
 package com.zhiyou100.vrm;
 
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,10 @@ public void test01(){
 	 for (Video video : showDatas) {
 		System.out.println(video.getAverage()+"--------"+video.getCourseName());
 	}*/
+	 /*Random ran = new Random();
+	Integer i = ran.nextInt(89999)+10000;
+	String str = i + "";
+	System.out.println(str);*/
 }
 }
 

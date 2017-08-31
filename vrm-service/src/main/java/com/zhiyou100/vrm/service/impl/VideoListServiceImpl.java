@@ -109,6 +109,11 @@ public void multiDelete(Integer[] choose) {
 	
 	
 }
+@Override
+public List<Video> findVideosBySpeakerId(Integer id) {
+	
+	return null;
+}
    
 
 }

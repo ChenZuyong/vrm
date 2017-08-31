@@ -22,4 +22,5 @@ public interface VideoListService {
    List<Video> showDatas();
    List<Subject> findAllSubject();
    void multiDelete(Integer []choose);
+   List<Video> findVideosBySpeakerId(Integer id);
 }

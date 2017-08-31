@@ -33,5 +33,9 @@ public interface CourseMapper {
     List<Course> findAllCourse();
     
     void deleteCourse(Integer id);
+    List<Course> findVideoAndCourseBySubId(Integer subjectId);
+    
+    
+    
   
 }
